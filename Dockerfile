@@ -18,11 +18,11 @@ RUN npm install
 # Copy project files
 COPY . .
 
-# Build the application (if using TypeScript)
+# Build the application
 RUN npm run build
 
 # Make output folders
 RUN mkdir -p /app/output-generated/excel /app/output-generated/pdf
 
-# Start the app
-CMD ["node", "dist/app.js"]
+# Start the app using tsx for TypeScript execution
+CMD ["npx", "tsx", "app.ts"]
